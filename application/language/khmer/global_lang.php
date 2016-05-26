@@ -85,6 +85,8 @@ $lang['contract'] = 'កិច្ចសន្យា';
 $lang['day off'] = 'ថ្ងៃឈប់សម្រាក';
 $lang['leave'] = 'ឈប់សម្រាក់';
 
+$lang['days'] = 'ច្រើនថ្ងៃ';
+
 $lang['All'] = 'All';
 $lang['OK'] = 'យល់ព្រម';
 $lang['Cancel'] = 'បោះបង់';

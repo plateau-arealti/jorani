@@ -28,6 +28,7 @@
             <tr><td>ics_enabled</td><td><?php echo ($this->config->item('ics_enabled') ? 'TRUE':'FALSE'); ?></td></tr>
             <tr><td>default_timezone</td><td><?php echo $this->config->item('default_timezone'); ?></td></tr>
             <tr><td>public_calendar</td><td><?php echo ($this->config->item('public_calendar') ? 'TRUE':'FALSE'); ?></td></tr>
+            <tr><td>dates_in_leaves_report</td><td><?php echo ($this->config->item('dates_in_leaves_report') ? 'TRUE':'FALSE'); ?></td></tr>
           </tbody>
         </table>
 

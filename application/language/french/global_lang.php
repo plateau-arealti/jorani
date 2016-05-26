@@ -83,6 +83,8 @@ $lang['contract'] = 'contrat';
 $lang['day off'] = 'jour non travaillé';
 $lang['leave'] = 'absence';
 
+$lang['days'] = 'Jours';
+
 $lang['All'] = 'Tout';
 $lang['OK'] = 'OK';
 $lang['Cancel'] = 'Annuler';

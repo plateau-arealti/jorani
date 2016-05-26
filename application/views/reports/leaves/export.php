@@ -106,7 +106,30 @@ foreach ($result as $user_id => $row) {
             $max++;
         }
         $colidx = $this->excel->column_name($index) . $line;
-        $sheet->setCellValue($colidx, $value);
+
+        //If the display of dates is activated
+        if($this->config->item('dates_in_leaves_report') == TRUE){
+          if (in_array($key,array_column($types,'name'))){
+              $leaves=$this->leaves_model->getAcceptedLeavesBetweenDatesByType($user_id, $start, $end, $key);
+              if(!empty($leaves)){
+                $leaves_dates="";
+                foreach ($leaves as $leave){
+                    $leave_start = new DateTime($leave['startdate']);
+                    $leave_start = $leave_start->format(lang('global_date_format'));
+                    $leave_end = new DateTime($leave['enddate']);
+                    $leave_end = $leave_end->format(lang('global_date_format'));
+                    $leaves_dates.="[".$leave_start." - ".$leave_end."]"."(".$leave['duration'].lang('days')." )";
+                }
+                $sheet->setCellValue($colidx,$leaves_dates);
+              }
+          }
+          else{
+              $sheet->setCellValue($colidx, $value);
+          }
+        }
+        else{
+          $sheet->setCellValue($colidx, $value);
+        }
         $index++;
     }
     $line++;

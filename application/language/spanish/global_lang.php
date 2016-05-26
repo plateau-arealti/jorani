@@ -84,6 +84,8 @@ $lang['contract'] = 'contrato';
 $lang['day off'] = 'dias de descanso';
 $lang['leave'] = 'permiso';
 
+$lang['days'] = 'Días';
+
 $lang['All'] = 'All';
 $lang['OK'] = 'OK';
 $lang['Cancel'] = 'Cancel';

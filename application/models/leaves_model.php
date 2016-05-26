@@ -76,7 +76,28 @@ class Leaves_model extends CI_Model {
         $this->db->order_by('startdate', 'asc');
         return $this->db->get()->result_array();
     }
-    
+
+    /**
+     * Return a list of Accepted leaves between two dates and for a given employee and a given type
+     * @param int $employee ID of the employee
+     * @param string $start Start date
+     * @param string $end End date
+     * @param string $type Type name
+     * @author Simon ROUVEL <simon.rouvel@gmail.com>
+     */
+    public function getAcceptedLeavesBetweenDatesByType($employee, $start, $end, $type) {
+        $this->db->select('leaves.*, types.name as type');
+        $this->db->from('leaves');
+        $this->db->join('status', 'leaves.status = status.id');
+        $this->db->join('types', 'leaves.type = types.id');
+        $this->db->where('employee', $employee);
+        $this->db->where("(startdate <= STR_TO_DATE('" . $end . "', '%Y-%m-%d') AND enddate >= STR_TO_DATE('" . $start . "', '%Y-%m-%d'))");
+        $this->db->where('leaves.status', 3);   //Accepted
+        $this->db->where('types.name', $type);
+        $this->db->order_by('startdate', 'asc');
+        return $this->db->get()->result_array();
+    }
+
     /**
      * Try to calculate the length of a leave using the start and and date of the leave
      * and the non working days defined on a contract

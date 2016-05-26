@@ -83,6 +83,8 @@ $lang['contract'] = 'قرارداد';
 $lang['day off'] = 'روز تعطیل';
 $lang['leave'] = 'مرخصی';
 
+$lang['days'] = 'روزها';
+
 $lang['All'] = 'All';
 $lang['OK'] = 'تایید';
 $lang['Cancel'] = 'لغو';

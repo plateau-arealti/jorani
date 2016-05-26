@@ -303,7 +303,30 @@ class Reports extends CI_Controller {
                         $thead .= '<th>' . $key . '</th>';
                     }
                 }
-                $tbody .= '<td>' . $value . '</td>';
+
+                //If the display of dates is activated
+                if($this->config->item('dates_in_leaves_report') == TRUE){
+                  if (in_array($key,array_column($types,'name'))){
+                      $leaves=$this->leaves_model->getAcceptedLeavesBetweenDatesByType($user_id, $start, $end, $key);
+                      $tbody .= '<td>';
+                      if(!empty($leaves)){
+                        foreach ($leaves as $leave){
+                            $leave_start = new DateTime($leave['startdate']);
+                            $leave_start = $leave_start->format(lang('global_date_format'));
+                            $leave_end = new DateTime($leave['enddate']);
+                            $leave_end = $leave_end->format(lang('global_date_format'));
+                            $tbody .="[".$leave_start." - ".$leave_end."]"."(".$leave['duration'].lang('days')." )";
+                        }
+                      }
+                      $tbody .= '</td>';
+                  }
+                  else{
+                      $tbody .= '<td>' . $value . '</td>';
+                  }
+                }
+                else{
+                  $tbody .= '<td>' . $value . '</td>';
+                }
                 $index++;
             }
             $tbody .= '</tr>';

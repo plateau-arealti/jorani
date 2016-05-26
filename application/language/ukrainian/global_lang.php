@@ -83,6 +83,8 @@ $lang['contract'] = 'контракт';
 $lang['day off'] = 'вихідний';
 $lang['leave'] = 'відпустка';
 
+$lang['days'] = 'Дні';
+
 $lang['All'] = 'All';
 $lang['OK'] = 'ОК';
 $lang['Cancel'] = 'Скасувати';

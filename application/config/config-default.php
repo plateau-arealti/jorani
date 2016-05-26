@@ -479,3 +479,8 @@ $config['public_calendar'] = FALSE;
 //Force spreadsheet export format. We strongly recommend XLSX format over Open Document Format.
 //Please note that ods doesn't support all formatting/style options and is considered as experimental
 $config['spreadsheet_format'] = 'xlsx';   //Supported formats: xlsx, ods
+
+//____________________________________________________________________________
+//Set this value to TRUE if you want to display the dates in leaves report
+//displayed format: [startdate - enddate](number of days)
+$config['dates_in_leaves_report'] = FALSE;
